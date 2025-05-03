@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JEE (Main) 2025 Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background-color: white;
+      padding: 30px;
+      border: 1px solid #ccc;
+      width: 350px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    .captcha {
+      font-size: 22px;
+      color: blue;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: green;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box" id="loginBox">
+    <center>
+      <img src="nta-logo.png" alt="NTA Logo" width="200"><br><br>
+      <h3>JOINT ENTRANCE EXAMINATION (Main) 2025</h3>
+    </center>
+    <form onsubmit="return validateForm()">
+      <label>Application Number:</label>
+      <input type="text" id="appNum" required>
+
+      <label>Password:</label>
+      <input type="password" id="password" required>
+
+      <div class="captcha" id="captcha">JAC9NK</div>
+      <button type="button" onclick="refreshCaptcha()">Refresh</button>
+
+      <label>Enter CAPTCHA (case sensitive):</label>
+      <input type="text" id="captchaInput" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      const app = document.getElementById("appNum").value;
+      const pass = document.getElementById("password").value;
+      const cap = document.getElementById("captchaInput").value;
+      if (app === "250310176708" && pass === "adarsh@hemen" && cap === "JAC9NK") {
+        window.location.href = "result.png"; // Ensure 'result.png' exists in the same or public folder
+        return false;
+      } else {
+        alert("Invalid details. Please try again.");
+        return false;
+      }
+    }
+
+    function refreshCaptcha() {
+      alert("Static CAPTCHA can't be refreshed in this demo.");
+    }
+  </script>
+</body>
+</html>
